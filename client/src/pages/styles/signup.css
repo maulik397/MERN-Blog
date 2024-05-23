@@ -1,0 +1,32 @@
+.register-form{
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    border-radius: 4px;
+    background-color: white;  /* Light gray background */
+    box-shadow: 0 2px 5px rgba(247, 247, 247, 0.1); /* Subtle shadow */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.register-form form{
+  display: flex;
+  flex-direction: column;
+  width: 40%; /* Form stretches to container width */
+  height:80%;
+}
+
+.register-form button
+{
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 3px;
+  border-color: black;
+  background-color: #030a10; /* Blue background */
+  color: white;
+  font-weight: bold;
+  cursor: pointer; /* Indicate clickable state */
+  transition: background-color 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+.register-form button:hover{
+background-color: #313335; }
