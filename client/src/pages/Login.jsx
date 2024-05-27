@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import axios from "axios";
 
 import "../pages/styles/login.css";
-
+import { UserContext } from '../Component/UserContext.jsx';
 import { useNavigate, Link } from "react-router-dom";
 
 const Login = () => {
@@ -10,7 +10,11 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [redirect, setRedirect] = useState(false);
+  const {userInfo, setUserInfo} =useContext(UserContext);
   const navigate = useNavigate();
+
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -21,7 +25,12 @@ const Login = () => {
       // Navigate to the home page
 
       if (response.status === 200) {
-        navigate("/profile");
+
+        setUserInfo(response.data)
+        setRedirect(true);
+
+         //it gives success
+
         
       }
     } catch (err) {
@@ -29,12 +38,16 @@ const Login = () => {
     }
    
   };
- 
+  if(redirect)
+    {
+      navigate('/')
+    }
 
   return (
     <div className="login">
       <h2>Login</h2>
-      
+      {error && <p className="error">{error}</p>}
+
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="email">Email</label>

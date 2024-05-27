@@ -25,14 +25,16 @@ router.post('/login',async(req,res)=>{
     const{email,password} =req.body;
     try{    
     const token  = await User.matchPassword(email,password);
-
+    const userDoc = await User.findOne({email});
+    
     if (!token) {
         return res.status(400).json({ message: 'no user found' });
       }
   
       res.cookie('token', token,{ secure:true, httpOnly: false,sameSite:'none' });
       
-      return res.status(200).json({ message: 'Login successful ' });
+      return res.status(200).json({id:userDoc._id,
+        email,});
     }
     catch(error)
     {

@@ -12,6 +12,7 @@ import CreatePost from './pages/CreatePost';
 import Logout from './pages/Logout';
 import Register from './pages/Register';
 import EditPage from './pages/EditPage';
+import { UserContextProvider } from './Component/UserContext';
 
 const router= createBrowserRouter(
  /* createRoutesFromElements(
@@ -31,9 +32,8 @@ const router= createBrowserRouter(
       {path:"profile",element:<UserProfile/>},
       {path:"authors",element:<Authors/>},
       {path:"create",element:<CreatePost/>},
-      {path:"post/:id/edit",element:<EditPage/>},
       {path:"logout",element:<Logout/>},
-
+      {path:"/edit/:id", element:<EditPage/>}
 
     ]
   }]
@@ -42,8 +42,9 @@ const router= createBrowserRouter(
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+   <UserContextProvider>
     <RouterProvider router={router}/>
-    
+    </UserContextProvider>
   </React.StrictMode>
 );
 

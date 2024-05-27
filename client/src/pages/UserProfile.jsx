@@ -1,9 +1,9 @@
 import React from 'react'
-import { useEffect } from 'react';
+import { useEffect,useContext } from 'react';
 import axios from 'axios';
-
+import { UserContext } from '../Component/UserContext';
 function UserProfile() {
-  
+  const {userInfo, setUserInfo} =useContext(UserContext);
   useEffect(()=>{
     const checkAuth = async() => {
       const response = await axios.get('http://localhost:8001/profile',{
@@ -17,10 +17,11 @@ function UserProfile() {
   
     checkAuth();
   },[]);
-
+console.log("this is profile page and user  is this",userInfo);
   return (
     <div>
-      user profile
+      this is yout user profile page  <br></br>
+      {userInfo.id}
     </div>
   )
 }

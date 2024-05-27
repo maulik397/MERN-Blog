@@ -1,38 +1,71 @@
 /* Assuming your CSS file is named PostDetail.css */
 
 .container {
-    max-width: 400px; /* Set a maximum width for responsiveness */
-    margin: auto ; /* Center the container horizontally */
-    padding: 20px; /* Add some padding for spacing */
-  }
-  
-  .post {
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
-    border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
-    /* Set a maximum height for the post container (optional) */
-    max-height: 500px; /* Adjust as needed */
-  }
-  
-  .image {
-    /* Set a fixed height for the image */
-    height: 200px; /* Adjust as desired */
-    width: 100%; /* Image will scale to fit within this height */
-    object-fit: cover; /* Maintain aspect ratio and crop if necessary */
-    border-top-left-radius: 4px; /* Match corner radius of the post */
-    border-top-right-radius: 4px; /* Match corner radius of the post */
-  }
-  
-  .overview {
-    padding: 1rem; /* Add padding for content */
-    font-size: 1.2rem; /* Adjust font size as desired */
-    margin: 0; /* Remove default margin for headings */
-  }
-  
-  .overview + p {
-    margin-top: 1rem; /* Add spacing between heading and paragraph */
-    line-height: 1.5; /* Adjust line spacing for readability */
-  }
-  
+  max-width: 1200px; /* Increase the max-width for a better layout */
+  margin: auto;
+  padding: 20px;
+  display: flex; /* Use flexbox for horizontal layout */
+  flex-wrap: wrap; /* Wrap items to the next row if necessary */
+  gap: 20px; /* Add space between the cards */
+  justify-content: center;
+  flex-grow: 1;
+   /* Center the items horizontally */
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 8px;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  width: 250px; /* Fixed width for the card */
+}
+
+.image {
+  width: 100px; /* Fixed width for the image */
+  height: 100px; /* Fixed height for the image */
+  border-radius: 50%; /* Make the image circular */
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.texts h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+  text-decoration:none;
+}
+
+.info {
+  font-size: 0.9rem;
+  color: #777;
+  margin: 10px 0;
+}
+
+.author {
+  text-decoration: none;
+  color: #555;
+  font-weight: bold;
+}
+
+.time {
+  color: #aaa;
+}
+
+.summary {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-top: 10px;
+}

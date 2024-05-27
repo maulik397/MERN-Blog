@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { useEffect,useHistory } from 'react';
 function Logout() {
   
      const history = useHistory();

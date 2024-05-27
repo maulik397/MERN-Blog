@@ -1,11 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useContext } from 'react'
 import { useState } from 'react';
 import { Link, redirect } from 'react-router-dom';
 import './Header.css'
 import axios from 'axios';
+import { UserContext } from './UserContext';
 
 function Header() {
   const [username, setUsername] = useState(null);
+  const {userInfo, setUserInfo} =useContext(UserContext);
+
 
   useEffect(()=>{
     const checkAuth = async() => {
@@ -16,13 +19,28 @@ function Header() {
         redirect('/');
         return;
       }
-      console.log(response.data);
+      
       setUsername(response.data.username);
+      console.log("this is header user info  ",userInfo);
     }
-  
+     
     checkAuth();
-  },[]);
+  },[userInfo]);
+
+const  logout = async()=>{
   
+    try{
+      await axios.post('http://localhost:8001/logout',{},{ withCredentials: true })
+      console.log(`Logging out`);
+      
+      setTimeout(() => {  window.location.href = "/";}, 1000)
+      
+    }catch(e)
+    {
+      console.log(e);
+    }
+  }
+  console.log(username);
 
   return (
     <header className="header">
@@ -30,9 +48,10 @@ function Header() {
       <h1 className="logo">My Blog</h1>
       <nav className="nav">
         { username && (
-            <>
-            <Link to='/create'>create new post </Link>
-            </>
+            <ul>
+           <li> <Link to='/create'>Create post </Link></li>
+           <li><a onClick={logout}>Logout</a></li>
+            </ul>
           )}
           {!username &&(
             <>
