@@ -43,7 +43,7 @@
 .texts h2 {
   margin: 0;
   font-size: 1.2rem;
-  color: #333;
+  color: #353232;
   text-decoration:none;
 }
 
@@ -68,4 +68,7 @@
   color: #555;
   line-height: 1.6;
   margin-top: 10px;
+}
+.texts h2{
+  text-decoration: none;
 }

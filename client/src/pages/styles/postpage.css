@@ -1,0 +1,58 @@
+.post-page {
+  margin: auto;
+  max-width: 768px;
+  padding: 20px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 0.25rem;
+  margin-bottom: 20px;
+ 
+}
+.card-img-top {
+  width: auto; /* Adjust width as needed */
+  height: 200px; /* Adjust height as needed */
+  object-fit: cover;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.card-body {
+  padding: 1.25rem;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.author {
+  color: #6c757d;
+  margin-bottom: 10px;
+}
+
+.time {
+  color: #6c757d;
+}
+
+.edit-row {
+  margin-top: 10px;
+}
+
+.edit-btn {
+  color: #fcfdff;
+  text-decoration: none;
+  background-color: black;
+  
+}
+
+.edit-btn:hover {
+  text-decoration: none;
+}
+
+.content {
+  margin-top: 20px;
+}

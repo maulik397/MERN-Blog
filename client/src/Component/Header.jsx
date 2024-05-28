@@ -40,7 +40,7 @@ const  logout = async()=>{
       console.log(e);
     }
   }
-  console.log(username);
+ 
 
   return (
     <header className="header">
@@ -51,6 +51,7 @@ const  logout = async()=>{
             <ul>
            <li> <Link to='/create'>Create post </Link></li>
            <li><a onClick={logout}>Logout</a></li>
+           <li>Hi!  {username}</li>
             </ul>
           )}
           {!username &&(

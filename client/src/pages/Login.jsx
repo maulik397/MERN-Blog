@@ -28,9 +28,6 @@ const Login = () => {
 
         setUserInfo(response.data)
         setRedirect(true);
-
-         //it gives success
-
         
       }
     } catch (err) {

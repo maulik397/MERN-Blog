@@ -7,7 +7,6 @@ import Home from './pages/Home';
 import PostDetail from './pages/PostDetail';
 import Login from './pages/Login';
 import UserProfile from './pages/UserProfile';
-import Authors from './pages/Authors';
 import CreatePost from './pages/CreatePost';
 import Logout from './pages/Logout';
 import Register from './pages/Register';
@@ -15,11 +14,7 @@ import EditPage from './pages/EditPage';
 import { UserContextProvider } from './Component/UserContext';
 
 const router= createBrowserRouter(
- /* createRoutesFromElements(
-       <Route path="/" element={<Layout />}>
-      
-        </Route>
-  )*/
+
   [{
     path:'/',
     element:<Layout/>,
@@ -30,7 +25,7 @@ const router= createBrowserRouter(
       {path:"register",element:<Register/>},
       {path:"login",element:<Login/>},
       {path:"profile",element:<UserProfile/>},
-      {path:"authors",element:<Authors/>},
+     
       {path:"create",element:<CreatePost/>},
       {path:"logout",element:<Logout/>},
       {path:"/edit/:id", element:<EditPage/>}
