@@ -98,19 +98,20 @@ app.put('/post',uploadMiddleware.single('file'), async (req,res) => {
   JWT.verify(token, secret, {}, async (err,info) => {
     if (err) throw err;
     const {id,title,summary,content} = req.body;
-    console.log("this is request data of user",id);
+ 
     try{
     const postDoc = await Post.findById(id);
-    console.log(postDoc)
+
     
     const isAuthor = JSON.stringify(postDoc.author) === JSON.stringify(userid);
-    console.log(isAuthor);
+   
     if (!isAuthor) {
       return res.status(400).json('you are not the author');
     }
     postDoc.title = title;
     postDoc.summary = summary;
     postDoc.content = content;
+    
     if (newPath) {
       postDoc.cover = newPath;
     }
@@ -126,6 +127,11 @@ app.put('/post',uploadMiddleware.single('file'), async (req,res) => {
 app.get('/post/:id', async (req, res) => {
   const {id} = req.params;
   const postDoc = await Post.findById(id).populate('author', ['username']);
+  res.json(postDoc);
+});
+app.get('/deletepost/:id', async (req, res) => {
+  const {id} = req.params;
+  const postDoc = await Post.findByIdAndDelete(id);
   res.json(postDoc);
 });
 app.post('/post',uploadMiddleware.single('file'),async(req,res)=>{

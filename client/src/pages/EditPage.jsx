@@ -78,7 +78,7 @@ export default function EditPage() {
   }
 
   return (
-    <form onSubmit={updatePost}>
+    <form onSubmit={updatePost} style={{marginBottom:"10vh"}}>
       <input
         type="title"
         placeholder={'Title'}
@@ -91,9 +91,9 @@ export default function EditPage() {
         value={summary}
         onChange={(ev) => setSummary(ev.target.value)}
       />
-      <input type="file" onChange={(ev) => setFile(ev.target.files[0])} /> {/* Access the first selected file */}
+      <input type="file" onChange={(ev) => setFile(ev.target.files[0])}  required/> {/* Access the first selected file */}
       <Editor onChange={setContent} value={content} />
-      <button style={{ marginTop: '5px' }}>Update post</button>
+      <button type='submit' style={{ marginTop: '5px' }}>Update post</button>
     </form>
   );
 }
